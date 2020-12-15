@@ -37,11 +37,16 @@ function App() {
 
   const onChange = event => {
     const { name, value } = event.target;
-
+    setFormValues({ ...friends, [name]: value })
   }
 
-  function onSubmit (inputName, inputValue) {
-
+  const onSubmit = (event, inputName, inputValue) => {
+    event.preventDefault();
+    const newMember = {
+      name: formValues.name.trim(),
+      email: formValues.email.trim(),
+      role:formValues.role.trim(),
+    }
   }
 
   
