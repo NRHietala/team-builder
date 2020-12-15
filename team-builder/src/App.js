@@ -32,21 +32,25 @@ const dummyFriends = [
 
 function App() {
   const [ formValues, setFormValues ] = useState(initialFormValues);
-  const [ friends, setFriends ] = useState(dummyFriends)
+  const [ friends, setFriends ] = useState(dummyFriends);
   // helper functions for submit and onchange
 
   const onChange = event => {
     const { name, value } = event.target;
-    setFormValues({ ...friends, [name]: value })
+    setFormValues({ ...formValues, [name]: value })
   }
 
   const onSubmit = (event, inputName, inputValue) => {
     event.preventDefault();
+
     const newMember = {
       name: formValues.name.trim(),
       email: formValues.email.trim(),
       role:formValues.role.trim(),
     }
+
+    setFriends([newMember, ...friends])
+
   }
 
   
@@ -57,6 +61,7 @@ function App() {
       <Form
       values={formValues}
       onChange={onChange}
+      onSubmit={onSubmit}
       />
       {
         friends.map(friend => {

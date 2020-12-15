@@ -3,9 +3,6 @@ import React from 'react'
 function Form(props) {
   const { values, onChange, onSubmit } = props;
 
-
-
-
   return (
     <div>
       <form onSubmit={onSubmit}>
@@ -24,9 +21,9 @@ function Form(props) {
           onChange={onChange}
           value={values.email}
           />
-        </label>
+        </label>Role
         <label>
-          <select name="role" onChange={onChange}>
+          <select name="role" onChange={onChange} value={values.role}>
             <option value="">---Select One---</option>
             <option value="Front-end">Front-End</option>
             <option value="Back-end">Back-End</option>
